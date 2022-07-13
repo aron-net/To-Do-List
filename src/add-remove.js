@@ -1,12 +1,13 @@
 import * as todoList from './todolist.js';
 import * as storage from './storage.js';
 
-const reindexTasks = (taskss) => {
+const indexTasks = (taskss) => {
   taskss.forEach((element, i) => {
     element.index = i;
   });
   return taskss;
 };
+
 const TodoListEdit = (tasks) => {
   const editTask = document.querySelectorAll('.item');
   editTask.forEach((i, index) => {
@@ -23,11 +24,11 @@ const TodoListEdit = (tasks) => {
       tasks[index] = task;
       storage.setTasksToStorage(tasks);
       todoList.TodoListItems(tasks);
-      reindexTasks(tasks);
-      TodoListDelete(tasks);
+      indexTasks(tasks);
     });
   });
 };
+
 const TodoListDelete = (taskss) => {
   let removeTask = document.querySelectorAll('.item');
   removeTask.forEach((e, eindex) => {
@@ -40,9 +41,9 @@ const TodoListDelete = (taskss) => {
         deleteButton.classList.add('fa-trash-can');
         deleteButton.addEventListener('click', () => {
           if (deleteButton.classList[1] === 'fa-trash-can') {
-            taskss = reindexTasks(taskss);
+            taskss = indexTasks(taskss);
             taskss = taskss.filter((t) => t.index !== eindex);
-            taskss = reindexTasks(taskss);
+            taskss = indexTasks(taskss);
             storage.setTasksToStorage(taskss);
             todoList.TodoListItems(taskss);
             TodoListDelete(taskss);
@@ -62,6 +63,7 @@ const TodoListDelete = (taskss) => {
     });
   });
 };
+
 const TodoListAdd = (taskss) => {
   const addTask = document.querySelector('.text-area');
   addTask.addEventListener('keydown', (e) => {
@@ -86,5 +88,5 @@ const TodoListAdd = (taskss) => {
 };
 
 export {
-  TodoListAdd, TodoListDelete, reindexTasks, TodoListEdit,
+  TodoListAdd, TodoListDelete, indexTasks, TodoListEdit,
 };
