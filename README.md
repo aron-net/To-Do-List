@@ -28,7 +28,7 @@ git clone https://github.com/aron-helu/To-Do-List.git
 
 Step 2: run **npm install** to download the necessary modules.
 
-step 3: run **npm build** to load the project in your broswer.
+step 3: run **npm start** to load the project in your broswer.
 
 ### Prerequisites
 
