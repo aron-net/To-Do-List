@@ -1,24 +1,11 @@
-import toDo from '../modules/ToDoList';
 import './index.css';
+import * as todoList from './todolist.js';
+import * as addRemove from './add-remove.js';
+import * as storage from './storage.js';
 
-const toDoList = document.querySelector('.main');
+const tasks = storage.getTasksFromStorage();
 
-const TASKS = () => {
-  let taskList = '';
-
-  for (let i = 0; i < toDo.length; i += 1) {
-    const list = `
-        <div class="list-item" > 
-        <input type="checkbox" name="task" value="task" ${toDo[i].completed}>  
-        <label for="item">${toDo[i].description}</label>
-        <span class="material-symbols-outlined">more_vert</span>            
-        </div>
-            `;
-    taskList += list;
-  }
-
-  toDoList.innerHTML = taskList;
-  console.log(toDoList);
-};
-
-TASKS();
+todoList.TodoListItems(tasks);
+addRemove.TodoListAdd(tasks);
+addRemove.TodoListEdit(tasks);
+addRemove.TodoListDelete(tasks);
