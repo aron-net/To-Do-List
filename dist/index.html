@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project - To DO List</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-<script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script></head>
-
-<body>
-  <section class="container">
-    <div class="app">
-      <h1>TO DO LIST</h1>
-      <form>
-        <input type="text" placeholder="Add new task...">
-        <button type="submit">&plus;</button>
-      </form>
-      <ul></ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <title>Webpack Template</title>
+  <script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script></head>
+  <body>
+    <h1>To Do List</h1>
+    <div id="to-do-list">
+      <div class="header">
+        <a>Today's To Do</a>
+        <i class="fa-solid fa-arrows-rotate"></i>
+      </div>
+      <div class="line"></div>
+      <div class="new-task">
+        <textarea
+          name="new-item"
+          id="new-item"
+          class="text-area"
+          placeholder="Add to Your list"
+          required
+        ></textarea>
+        <i class="fa-solid fa-arrow-left"></i>
+      </div>
+      <div class="line"></div>
+      <div class="list-container"></div>
+      <div class="clear">Clear All Completed</div>
     </div>
-  </section>
-</body>
-
+  </body>
 </html>

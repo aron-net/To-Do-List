@@ -16,8 +16,9 @@ h1 {
   align-self: center;
   justify-self: center;
   width: 600px;
-  border: 1px solid black;
+  border: 10px solid black;
   background-color: #fff;
+  border-image: url('./background-with-floral-elements-border-free-vector.jpg') 20 round;
   padding: 10px 0 0 0;
 }
 
