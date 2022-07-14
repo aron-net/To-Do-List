@@ -1,5 +1,7 @@
-import * as todoList from './todolist.js';
+import TodoListItems from './todolist.js';
 import * as storage from './storage.js';
+import { changeStatus } from './interactive.js';
+
 
 const indexTasks = (taskss) => {
   taskss.forEach((element, i) => {

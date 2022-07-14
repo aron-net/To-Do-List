@@ -6,7 +6,7 @@ const TodoListItems = (taskss) => {
     const divElement2 = document.createElement('div');
     const htmlitem = `
             <div>
-                <input type="checkbox" name="item" id="item" />
+                <input type="checkbox" class="completed" name="item" id="item" />
                 <textarea rows="1" for="item" class="item" required"">${e.description}</textarea>
             </div>
             <i class="fa-solid fa-ellipsis-vertical"></i>
