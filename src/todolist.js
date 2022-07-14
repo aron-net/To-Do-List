@@ -20,4 +20,3 @@ const TodoListItems = (taskss) => {
 };
 
 export default TodoListItems;
-export { TodoListItems };
