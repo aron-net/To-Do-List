@@ -1,14 +1,62 @@
 import './index.css';
-import TodoListItems from './modules/todolist.js';
-import * as addRemove from './modules/add-remove.js';
-import * as storage from './modules/storage.js';
-import { changeStatus, clearAllCompleted } from './modules/interactive.js';
+import * as Store from './modules/store.js';
+import UIDisplay from './modules/showTask.js';
+import taskArr from './modules/toDo.js';
+import removeTask from './modules/remove.js';
 
-const tasks = storage.getTasksFromStorage();
+class Task {
+  constructor(description, completed, index) {
+    this.description = description;
+    this.completed = completed;
+    this.index = index;
+  }
+}
 
-TodoListItems(tasks);
-addRemove.TodoListAdd(tasks);
-addRemove.TodoListEdit(tasks);
-addRemove.TodoListDelete(tasks);
-changeStatus(tasks);
-clearAllCompleted(tasks);
+const syncIcon = document.getElementById('sync');
+
+syncIcon.addEventListener('click', () => {
+  taskArr.forEach((task) => { task.completed = true; });
+  const completed = taskArr.filter((task) => task.completed === true);
+  completed.forEach((task) => removeTask(task));
+});
+
+const addInput = document.getElementById('add');
+
+document.addEventListener('DOMContentLoaded', () => {
+  Store.getTasks(taskArr);
+  taskArr.forEach((task) => { task.completed = false; });
+  Store.addTask(taskArr);
+  UIDisplay.displayTaks(taskArr);
+});
+
+const addIcon = document.getElementById('add-icon');
+
+addInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter' && addInput.value) {
+    const task = new Task(addInput.value, false, taskArr.length + 1);
+    taskArr.push(task);
+    // Prevent submit
+    e.preventDefault();
+    UIDisplay.createTask(task);
+    Store.addTask(taskArr);
+
+    addInput.value = '';
+  } else {
+    addInput.setAttribute('required', '');
+  }
+});
+
+addIcon.addEventListener('click', (e) => {
+  if (addInput.value) {
+    const task = new Task(addInput.value, false, taskArr.length + 1);
+    taskArr.push(task);
+    // Prevent submit
+    e.preventDefault();
+    UIDisplay.createTask(task);
+    Store.addTask(taskArr);
+
+    addInput.value = '';
+  } else {
+    addInput.setAttribute('required', '');
+  }
+});
