@@ -17,8 +17,8 @@ h1 {
   justify-self: center;
   width: 600px;
   border: 10px solid black;
-  background-color: #fff;
   border-image: url('./background-with-floral-elements-border-free-vector.jpg') 20 round;
+  background-color: #fff;
   padding: 10px 0 0 0;
 }
 
@@ -82,4 +82,8 @@ textarea:focus {
   background-color: rgb(189, 187, 187);
   margin: 0 !important;
   cursor: pointer;
+}
+
+.middleline {
+  text-decoration-line: line-through;
 }

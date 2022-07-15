@@ -1,7 +1,5 @@
 import TodoListItems from './todolist.js';
 import * as storage from './storage.js';
-import { changeStatus } from './interactive.js';
-
 
 const indexTasks = (taskss) => {
   taskss.forEach((element, i) => {
@@ -9,7 +7,6 @@ const indexTasks = (taskss) => {
   });
   return taskss;
 };
-
 const TodoListEdit = (tasks) => {
   const editTask = document.querySelectorAll('.item');
   editTask.forEach((i, index) => {
@@ -25,12 +22,11 @@ const TodoListEdit = (tasks) => {
       };
       tasks[index] = task;
       storage.setTasksToStorage(tasks);
-      todoList.TodoListItems(tasks);
+      TodoListItems(tasks);
       indexTasks(tasks);
     });
   });
 };
-
 const TodoListDelete = (taskss) => {
   let removeTask = document.querySelectorAll('.item');
   removeTask.forEach((e, eindex) => {
@@ -47,7 +43,7 @@ const TodoListDelete = (taskss) => {
             taskss = taskss.filter((t) => t.index !== eindex);
             taskss = indexTasks(taskss);
             storage.setTasksToStorage(taskss);
-            todoList.TodoListItems(taskss);
+            TodoListItems(taskss);
             TodoListDelete(taskss);
             TodoListEdit(taskss);
           }
@@ -65,7 +61,6 @@ const TodoListDelete = (taskss) => {
     });
   });
 };
-
 const TodoListAdd = (taskss) => {
   const addTask = document.querySelector('.text-area');
   addTask.addEventListener('keydown', (e) => {
@@ -80,11 +75,12 @@ const TodoListAdd = (taskss) => {
         index: taskss.length,
       };
       taskss.push(task);
-      todoList.TodoListItems(taskss);
+      TodoListItems(taskss);
       TodoListDelete(taskss);
       storage.setTasksToStorage(taskss);
       addTask.value = null;
       TodoListEdit(taskss);
+      // changeStatus(taskss);
     }
   });
 };

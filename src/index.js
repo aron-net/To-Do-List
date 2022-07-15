@@ -1,8 +1,8 @@
 import './index.css';
-import TodoListItems from './todolist.js';
-import * as addRemove from './add-remove.js';
-import * as storage from './storage.js';
-import { changeStatus, clearAllCompleted } from './interactive.js';
+import TodoListItems from './modules/todolist.js';
+import * as addRemove from './modules/add-remove.js';
+import * as storage from './modules/storage.js';
+import { changeStatus, clearAllCompleted } from './modules/interactive.js';
 
 const tasks = storage.getTasksFromStorage();
 

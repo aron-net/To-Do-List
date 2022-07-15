@@ -5,17 +5,16 @@ const TodoListItems = (taskss) => {
     const divElement = document.createElement('div');
     const divElement2 = document.createElement('div');
     const htmlitem = `
-            <div>
-                <input type="checkbox" class="completed" name="item" id="item" />
-                <textarea rows="1" for="item" class="item" required"">${e.description}</textarea>
-            </div>
-            <i class="fa-solid fa-ellipsis-vertical"></i>
-        `;
+              <div>
+                  <input type="checkbox" class="completed" name="item" id="item" />
+                  <textarea rows="1" for="item" class="item" required"">${e.description}</textarea>
+              </div>
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+          `;
     divElement2.classList.add('line');
     divElement.classList.add('list');
     divElement.innerHTML = htmlitem;
-    todolist.appendChild(divElement);
-    todolist.appendChild(divElement2);
+    todolist.appendChild(divElement, divElement2);
   });
 };
 
